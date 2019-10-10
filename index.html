@@ -6,29 +6,50 @@
 
      <!-- styles  -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
 
   </head>
   <body>
-       <div class="container">
+    <div class="container">
            <header>
+
              <h1>Guess The Word Game</h1>
              <span> START TYPING TO PLAY</span>
               <h2 class="attempts" id="attempts"></h2>
+
            </header>
+
+            <br>
+
+       <div class="underscore" id="underscore"></div>
+
+             <br>
+
+        <div class="message" id="message"></div>
+
+            <br>
+
+           <div class="section">
+                <h2> Right Guesses:  </h2>
+                <p id="rightGuesses"></p>
+           </div>
+
            <br>
 
-           <div class="underscore" id="underscore"></div>
-           <div class="message" id="message"></div>
+           <div class="section">
+                <h2>  Wrong Guesses: </h2>
+                <p id="wrongGuess"></p>
 
-           <br>
-           <div class="rightGuess" id="rightGuess"> Right Guesses:  </div>
-           <br>
-           <div class="wrongGuess" id="wrongGuess"> Wrong Guesses:  </div>
-       </div>
+
+
+
+        </div>
+
+    </div>
 
   </body>
 
-  <script src="assets/js/wordguess.js">  </script>
+    <script src="assets/js/wordguess.js">  </script>
 
 </html>

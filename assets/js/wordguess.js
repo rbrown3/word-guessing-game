@@ -66,59 +66,28 @@ getArrOfWords();
         keyword = String.fromCharCode(event.which)
        for (var i = 0; i < unknownLetters.length; i++) {
     if ( unknownLetters[i] === keyword) {
-       underscore[i] = keyword;
-       var underscores = document.getElementById('underscore')
-        underscores.innerHTML = underscore.join(' ')
-        rightWord.push(keyword)
-        var displayRightMessage =document.getElementById("message")
-        displayRightMessage.innerHTML = 'Corrrect!';
-        var displayrightGuesses =document.getElementById("rightGuess")
-        displayrightGuesses.innerHTML = 'Right Guesses:' + '  ' + [... new Set(rightWord)].join('');
+          underscore[i] = keyword;
+          var underscores = document.getElementById('underscore')
+          underscores.innerHTML = underscore.join(' ')
+          rightWord.push(keyword)
+          var displayRightMessage =document.getElementById("message")
+          displayRightMessage.innerHTML = 'Corrrect!';
+          var displayrightGuesses =document.getElementById("rightGuess")
+          displayrightGuesses.innerHTML = [... new Set(rightWord)].join('');
   }
   if (unknownLetters.indexOf(keyword) < 0){
-    wrongWord.push(keyword);
-    var displayWrongGuesses =document.getElementById("wrongGuess")
-    var displayWrongMessage =document.getElementById("message")
-    displayWrongMessage.innerHTML = 'Incorrect, please try again!';
-    displayWrongGuesses.innerHTML = 'Wrong Guesses:' + '  ' + wrongWord.join('');
-    losses -= 1
-    console.log(wrongWord)
-    var fail = document.getElementById('attempts')
-    fail.innerHTML = losses
+        wrongWord.push(keyword);
+        var displayWrongGuesses =document.getElementById("wrongGuess")
+        var displayWrongMessage =document.getElementById("message")
+        displayWrongMessage.innerHTML = 'Incorrect, please try again!';
+        displayWrongGuesses.innerHTML =  [... new Set(wrongWord)].join('');
+        losses -= 1
+        console.log(wrongWord)
+        var fail = document.getElementById('attempts')
+        fail.innerHTML = losses
 
       }
       }
     })
    }
   }
-
-
-  //
-  // var key_code = event.keyCode ? event.keyCode : event.which;
-  //        if((key_code  >=97 && key_code  <=122) || (key_code  >=48 && key_code <=57))
- //
- //  if(unknownLetters.i > -1 ) {
- //     console.log(unknownLetters)
- //    rightWord.push(keyword);
- //    underscore[keyword.indexOf(unknownLetters)] = keyword;
- //
- // }
- //
- // }
- //  if(underscore.join('') == randWord){
- //
- //    }
-
-
-
-
-
-
- // document.addEventListener('keypress', (event) => {
- //      keyword = String.fromCharCode(event.keyCode);
- //      if(randWord.indexOf(keyword) > -1) {
- //        correctWord.push(keyword);
- //
- //      }
- //
- // });
