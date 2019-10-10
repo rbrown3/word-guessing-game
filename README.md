@@ -31,7 +31,7 @@ This game was created to show problem solving skills, as well as beginner profic
 
 ## Authors
 
-* **Rosanna** - *Initial work* - [PurpleBooth](https://github.com/rbrown03)
+* **Rosanna Brown ** - *Initial work* - https://github.com/rbrown03
 
 
 ## Resources
