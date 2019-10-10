@@ -31,9 +31,9 @@ header {
   width: 80%;
 }
 
-.rightGuess {
-  font-size: 18px;
-  font-weight: bold;
+#rightGuess {
+  font-size: 24px;
+  font-style: oblique;
   height: 150px;
   margin: 25px auto;
   text-align: center;
@@ -41,8 +41,9 @@ header {
 }
 
 
-.wrongGuess {
-  font-size: 20px;
+#wrongGuess {
+  font-size: 24px;
+  font-style: oblique;
   height: 150px;
   margin: 25px auto;
   text-align: center;
