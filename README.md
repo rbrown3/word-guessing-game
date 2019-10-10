@@ -29,12 +29,6 @@ This game was created to show problem solving skills, as well as beginner profic
 * [CSS](https://www.w3schools.com/css/) - Styling and layout
 * [JavaScipt](https://www.w3schools.com/js/) - program behavior
 
-
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
-
 ## Authors
 
 * **Rosanna** - *Initial work* - [PurpleBooth](https://github.com/rbrown03)
