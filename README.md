@@ -27,7 +27,7 @@ This game was created to show problem solving skills, as well as beginner profic
 
 * [HTML] (https://www.w3schools.com/html/) - define the structure
 * [CSS](https://www.w3schools.com/css/) - Styling and layout
-* [JavaScipt](https://www.w3schools.com/js/) - program behavior
+* [JavaScript](https://www.w3schools.com/js/) - program behavior
 
 ## Authors
 
