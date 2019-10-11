@@ -27,7 +27,7 @@
    fetch('http://app.linkedin-reach.io/words')
   .then(res => (res.text())) // get the response back in text
   .then(data => words = data.split(/\r|\n/)) // turn the response into an array of words
-  .then(words => this.generateRandomWord())
+  .then(words => this.startGame())
   .then(() => this.generateUnderScore())
   .then(()  => this.keypressHandler())
 }
@@ -35,7 +35,7 @@
 getArrOfWords();
 
   // generate a random word from the array of words
-  function generateRandomWord() {
+  function startGame() {
       randNum = Math.floor(Math.random() * words.length);
       randWord = words[randNum];
       // currentWord.push(randWord)
