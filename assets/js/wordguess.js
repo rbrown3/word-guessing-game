@@ -60,12 +60,16 @@ getArrOfWords();
    // determine if key press is the correct letter or not
    // push into the correct array of wrong or right guesses
   function keypressHandler(){
+
     {
     document.addEventListener('keyup', (event) => {
+       event.preventDefault();
+
 
         keyword = String.fromCharCode(event.which)
        for (var i = 0; i < unknownLetters.length; i++) {
-    if ( unknownLetters[i] === keyword) {
+         if (event.repeat) { return }
+         if ( unknownLetters[i] === keyword) {
           underscore[i] = keyword;
           var underscores = document.getElementById('underscore')
           underscores.innerHTML = underscore.join(' ')
