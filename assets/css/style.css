@@ -19,8 +19,8 @@ header {
   background-color: #ffffff;
 }
 
-.underscore {
-   font-size: 100px;
+#word-blanks {
+   font-size: 50px;
    height: 150px;
    margin: 18px auto;
    text-align: center;

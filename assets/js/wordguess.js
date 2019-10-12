@@ -48,7 +48,7 @@ getArrOfWords();
        underscore = [];
        for (var i = 0; i < unknownLetters.length; i++) {
            underscore[i] = "_";
-           var underscores = document.getElementById('underscore')
+           var underscores = document.getElementById('word-blanks')
            underscores.innerHTML = underscore.join(' ')
 
          }
@@ -71,7 +71,7 @@ getArrOfWords();
          if (event.repeat) { return }
          if ( unknownLetters[i] === keyword) {
           underscore[i] = keyword;
-          var underscores = document.getElementById('underscore')
+          var underscores = document.getElementById('word-blanks')
           underscores.innerHTML = underscore.join(' ')
           rightWord.push(keyword)
           var displayRightMessage =document.getElementById("message")
