@@ -9,6 +9,7 @@ var underScores = [];
 var playerGuesses = [];
 var changeUnderScores;
 var wrongLetter = [];
+var correctLetter = [];
 
 
 
@@ -59,6 +60,8 @@ getArrOfWords();
    // }
 
   // listen for keyup (letters that are pressed and released)
+  // decrease triesLeft counter if playerGuesses are wrong
+  // change underScores and reveal ocurrences of correct playerGuesses, if player guesses correctly
    document.onkeyup = function(event){
      playerGuesses = event.key;
      console.log(playerGuesses)
@@ -72,9 +75,11 @@ getArrOfWords();
         {
 
         underScores[i] = playerGuesses;
+        correctLetter.push(playerGuesses);
         var changeUnderScores = document.getElementById("word-blanks");
         changeUnderScores.innerHTML = underScores.join(' ');
         document.getElementById('message').innerHTML = "CORRECT!"
+        document.getElementById("rightGuess").innerHTML = correctLetter.join(' ')
    //     correct++;
    //     trackWinsLosses();
          }
@@ -86,7 +91,7 @@ getArrOfWords();
       {
       wrongLetter.push(playerGuesses);
       triesLeft--;
-      document.getElementById("wrongGuess").innerHTML = wrongLetter
+      document.getElementById("wrongGuess").innerHTML = wrongLetter.join(' ')
       document.getElementById('guesses-left').innerHTML = triesLeft;
       document.getElementById('message').innerHTML = "Wrong guess, try again!"
    //    trackWinsLosses();
