@@ -30,6 +30,7 @@ getArrOfWords();
 
   // generate a random word from the array of words
   function startGame() {
+      underScores = []
       randNum = Math.floor(Math.random() * words.length);
       randWord = words[randNum];
       // currentWord.push(randWord)
@@ -50,10 +51,14 @@ getArrOfWords();
 
    }
    //
-   // function trackWinsLosses()
-   // {
-   //
-   // }
+   function trackWinsLosses()
+    {
+     if(triesLeft <= 0)
+      {
+       setTimeout(alert("Sorry, game over!"), 3000)
+       setTimeout(startGame(), 3000);
+      }
+     }
 
   // listen for keyup (letters that are pressed and released)
   // decrease triesLeft counter if playerGuesses are wrong
@@ -74,7 +79,6 @@ getArrOfWords();
         correctLetter.push(playerGuesses);
         var changeUnderScores = document.getElementById("word-blanks");
         changeUnderScores.innerHTML = underScores.join(' ');
-        document.getElementById('message').innerHTML = "CORRECT!"
         document.getElementById("rightGuess").innerHTML = correctLetter.join(' ')
    //     correct++;
    //     trackWinsLosses();
@@ -89,8 +93,8 @@ getArrOfWords();
       triesLeft--;
       document.getElementById("wrongGuess").innerHTML = wrongLetter.join(' ')
       document.getElementById('guesses-left').innerHTML = triesLeft;
-      document.getElementById('message').innerHTML = "Wrong guess, try again!"
-   //    trackWinsLosses();
+      alert("Wrong Guess, Try Again!")
+      trackWinsLosses();
       }
 
    }
