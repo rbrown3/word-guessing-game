@@ -6,7 +6,7 @@
 
      <!-- styles  -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
 
 
   </head>
@@ -14,11 +14,11 @@
     <div class="container">
            <header>
 
-             <h1>Guess The Word Game</h1>
+             <h1>GUESS THE WORD</h1>
              <p>Enter a letter to begin playing: <input type="text" id="guesses" onkeyup="guessEntry()"></p>
-              <h2  id="guesses-left"></h2>
+          </header>
 
-           </header>
+          <h1 id="guesses-left"></h1>
 
             <br>
 
@@ -32,26 +32,21 @@
 
 
             </div>
-            <div class="flex-container">
-                  <div>
-                      <h2>Correct:</h2>
-                      <p id="rightGuess"></p>
-                  </div>
-
-                  <br>
-
-                  <div>
-                      <h2>Incorrect:</h2>
-                      <p id="wrongGuess"></p>
-
-                  </div>
-
-            </div>
-
-
-
 
         </div>
+
+        <div class="container-box">
+            <div class="box a">
+              <h2>YES</h2>
+              <p id="rightGuess"></p>
+        </div>
+            <div class="box a">
+              <h2>NO</h2>
+              <p id="wrongGuess"></p>
+            </div>
+
+        </div>
+
 
 
 
@@ -60,6 +55,7 @@
   </body>
 
 
-    <script src="assets/js/wordguess.js">  </script>
+    <script src="assets/js/wordguess.js"></script>
+    
 
 </html>

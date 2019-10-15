@@ -9,6 +9,7 @@ var playerGuesses = [];
 var correctLetters = [];
 var wrongletters = [];
 
+
 // MAIN
 //=================================================================================================
 
@@ -20,12 +21,15 @@ var wrongletters = [];
   .then(words => this.startGame()) // call on this function to begin the game
   }
 
-getArrOfWords() // call the function that GETs the list of words, turns the list into an array, starts the game
+  getArrOfWords() // call the function that GETs the list of words, turns the list into an array, starts the game
 
 // pick a random word from array of words, create word blanks that equal the length of the word
 
+
   function startGame()
+
   {
+    
     var clear = document.getElementById("guesses");
     clear.value = "";
     correctLetters = [];
@@ -34,7 +38,7 @@ getArrOfWords() // call the function that GETs the list of words, turns the list
     underScore = [] //empty array to store underscores based on the length of the random word.
     randNum  = [Math.floor(Math.random() * words.length)]; // nearest integer from a random number (0.0 -1 ) times the length of words array
     randWord = words[randNum] // get a random word by using rand number as an index to retrieve a word at that location in array
-    console.log(randWord);
+    console.log(randWord)
     for( i = 0; i < randWord.length; i++ )
     {
        underScore[i] = "_";
@@ -61,6 +65,8 @@ getArrOfWords() // call the function that GETs the list of words, turns the list
      {
        // setTimeout(4000);
        alert('You Won!');
+       startConfetti();
+       setTimeout(4000);
        startGame();
 
      }
@@ -68,31 +74,32 @@ getArrOfWords() // call the function that GETs the list of words, turns the list
    }
 
   function guessEntry(){
-     playerGuesses = event.key;
-     console.log(playerGuesses)
-     if(randWord.indexOf(playerGuesses) > -1)
+    if(event.keyCode >= 65 && event.keyCode <= 90) {
+          playerGuesses = event.key.toLowerCase();
+        }
+    if(randWord.indexOf(playerGuesses) > -1)
      {
-      for(i = 0; i < randWord.length; i++)
+    for(i = 0; i < randWord.length; i++)
       {
-        if(randWord[i] === playerGuesses)
+    if(randWord[i] === playerGuesses)
         {
-          console.log(underScore[i] = playerGuesses);
-          var changeUnderScores = document.getElementById("word-blanks");
-          changeUnderScores.innerHTML = underScore.join('');
+          underScore[i] = playerGuesses
+          document.getElementById("word-blanks").innerHTML = underScore.join('');
           correctLetters.push(playerGuesses)
 
           // document.getElementById('word-blanks').innerHTML = underScore.join('')
           document.getElementById('rightGuess').innerHTML = correctLetters
+
         }
       }
      }
-     else
+    else
       {
        wrongletters.push(playerGuesses);
        attempts--;
-       console.log(wrongletters)
        document.getElementById('wrongGuess').innerHTML = wrongletters
        document.getElementById('guesses-left').innerHTML = attempts
+
       }
       winsAndLosses()
   }

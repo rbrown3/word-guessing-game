@@ -1,30 +1,42 @@
 
+:root {
+  --margin: 10px;
+}
+
+
+
+
+
 body
 {
-    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    background-color: #f2e6e6;
+    font-family: 'Lobster', cursive;
 }
 
 header {
-    background-color: #87ceeb;
-    border: 3px solid black;
+    background: linear-gradient(to bottom right, #F38CAC, #F4C2C2);
+    border-radius: 25px;
     font-size: 24px;
-    height: 150px;
+    height: 200px;
     margin: 18px auto;
+    padding: 5px;
     text-align: center;
     width: 80%;
 
 }
 
-.flex-container p {
-  background-color: #ffffff;
+h1 {
+     text-align: center;
+     font-size: 48px;
 }
 
-#word-blanks {
-   font-size: 50px;
-   height: 150px;
-   margin: 18px auto;
-   text-align: center;
-   width: 80%;
+p{
+   font-size: 20px;
+}
+
+.flex-container p {
+  background-color: #ffffff;
 }
 
 .message {
@@ -35,27 +47,45 @@ header {
   width: 80%;
 }
 
-#rightGuess {
-  font-size: 24px;
-  font-style: oblique;
-  height: 150px;
-  margin: 25px auto;
+.container-box {
+  display: flex;
+  flex-wrap: wrap;
   text-align: center;
-  width: 80%;
+  width: 100%;
+}
+
+.a {
+  width: calc((100%/2) - (var(--margin)* 2));
 }
 
 
-#wrongGuess {
-  font-size: 24px;
-  font-style: oblique;
-  height: 150px;
-  margin: 25px;
-  text-align: center;
-  width: 80%;
+.box {
+  background: linear-gradient(to bottom right, #F38CAC, #F4C2C2);
+  border-radius: 5px;
+  margin: var(--margin);
+  height: 50px;
 }
+
+
 
 .flex-container {
   background-color: #87ceeb;
   display: flex;
   margin: 10px;
+}
+
+#word-blanks {
+   font-size: 50px;
+   height: 150px;
+   margin: 18px auto;
+   text-align: center;
+   width: 80%;
+}
+
+#guesses {
+    border-radius: 15px;
+    background: #FFDBE9;
+    padding: 10px;
+    width: 200px;
+    height: 10px;
 }
