@@ -3,7 +3,9 @@
 var words;
 var randNum;
 var randWord;
+var wordBlanks;
 var attempts = 6;
+var wins = 0;
 var underScore;
 var playerGuesses = [];
 var correctLetters = [];
@@ -23,13 +25,17 @@ var wrongletters = [];
 
   getArrOfWords() // call the function that GETs the list of words, turns the list into an array, starts the game
 
+  function noDuplicateValues(value, index, self) {
+    return self.indexOf(value) === index;
+}
+
+
 // pick a random word from array of words, create word blanks that equal the length of the word
 
 
   function startGame()
 
   {
-    
     var clear = document.getElementById("guesses");
     clear.value = "";
     correctLetters = [];
@@ -38,7 +44,7 @@ var wrongletters = [];
     underScore = [] //empty array to store underscores based on the length of the random word.
     randNum  = [Math.floor(Math.random() * words.length)]; // nearest integer from a random number (0.0 -1 ) times the length of words array
     randWord = words[randNum] // get a random word by using rand number as an index to retrieve a word at that location in array
-    console.log(randWord)
+    console.log(randWord);
     for( i = 0; i < randWord.length; i++ )
     {
        underScore[i] = "_";
@@ -56,22 +62,24 @@ var wrongletters = [];
 
    {
      var correctWord = underScore.join('')
-     if (attempts < 1)
+     setTimeout(4000)
+     if (attempts < 0)
      {
-       alert('Sorry, game over!')
+       swal('Sorry, game over!')
        startGame();
      }
      else if (randWord === correctWord )
      {
-       // setTimeout(4000);
-       alert('You Won!');
-       startConfetti();
-       setTimeout(4000);
+       swal('You Won!');
+       wins++;
+       console.log(wins)
        startGame();
 
      }
 
    }
+
+   var alreadyPressed = [];
 
   function guessEntry(){
     if(event.keyCode >= 65 && event.keyCode <= 90) {
@@ -84,11 +92,13 @@ var wrongletters = [];
     if(randWord[i] === playerGuesses)
         {
           underScore[i] = playerGuesses
-          document.getElementById("word-blanks").innerHTML = underScore.join('');
+          var wordBlanks = document.getElementById("word-blanks")
+          wordBlanks.innerHTML = underScore.join(' ')
           correctLetters.push(playerGuesses)
 
           // document.getElementById('word-blanks').innerHTML = underScore.join('')
-          document.getElementById('rightGuess').innerHTML = correctLetters
+          var uniqueCorrectLetters = correctLetters.filter(noDuplicateValues);
+          document.getElementById('rightGuess').innerHTML = uniqueCorrectLetters;
 
         }
       }
@@ -97,7 +107,8 @@ var wrongletters = [];
       {
        wrongletters.push(playerGuesses);
        attempts--;
-       document.getElementById('wrongGuess').innerHTML = wrongletters
+       var uniqueWrongLetters = wrongletters.filter(noDuplicateValues);
+       document.getElementById('wrongGuess').innerHTML = uniqueWrongLetters
        document.getElementById('guesses-left').innerHTML = attempts
 
       }

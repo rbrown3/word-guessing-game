@@ -1,21 +1,21 @@
+/* MAIN STYLES */
+
 
 :root {
   --margin: 10px;
 }
 
 
-
-
-
 body
 {
     padding: 10px;
-    background-color: #f2e6e6;
+    background-color: #fff9e3;
     font-family: 'Lobster', cursive;
 }
 
+
 header {
-    background: linear-gradient(to bottom right, #F38CAC, #F4C2C2);
+    background: linear-gradient(to bottom right, #de6262,  #ffb88c);
     border-radius: 25px;
     font-size: 24px;
     height: 200px;
@@ -26,26 +26,21 @@ header {
 
 }
 
+
 h1 {
      text-align: center;
      font-size: 48px;
 }
 
+
 p{
    font-size: 20px;
+   font-family: 'Muli', sans-serif;
 }
 
-.flex-container p {
-  background-color: #ffffff;
-}
 
-.message {
-  font-size: 18px;
-  height: 150px;
-  margin: 25px auto;
-  text-align: center;
-  width: 80%;
-}
+/* Containers  */
+
 
 .container-box {
   display: flex;
@@ -54,27 +49,25 @@ p{
   width: 100%;
 }
 
+
 .a {
   width: calc((100%/2) - (var(--margin)* 2));
 }
 
 
 .box {
-  background: linear-gradient(to bottom right, #F38CAC, #F4C2C2);
+  background: linear-gradient(to bottom right, #de6262,  #ffb88c);
   border-radius: 5px;
   margin: var(--margin);
   height: 50px;
 }
 
 
+/* underscores */
 
-.flex-container {
-  background-color: #87ceeb;
-  display: flex;
-  margin: 10px;
-}
 
 #word-blanks {
+   background-color: #fffff2;
    font-size: 50px;
    height: 150px;
    margin: 18px auto;
@@ -82,10 +75,46 @@ p{
    width: 80%;
 }
 
+
+/* input */
+
 #guesses {
     border-radius: 15px;
-    background: #FFDBE9;
+    background: #fdf6da;
+    font-family: 'Muli', sans-serif;
+    font-size: 18px;
     padding: 10px;
     width: 200px;
     height: 10px;
 }
+
+
+/* alerts */
+
+.swal-button {
+    background-color: #ff7f4f;
+}
+
+.swal-button-confirm button:hover {
+    background-color: #ffcba4;
+}
+
+.swal-modal{
+   background-color: #fff9e3;
+}
+
+.swal-text{
+  font-size: 28px;
+}
+
+
+/* .flex-container {
+  background-color: #87ceeb;
+  display: flex;
+  margin: 10px;
+} */
+
+
+/* .flex-container p {
+  background-color: #ffffff;
+} */
