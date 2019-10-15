@@ -1,100 +1,98 @@
-// GLOBAL VARIABLES
-//=================================================================
+//  Global Variables
+// ===============================================================================================
 var words;
 var randNum;
 var randWord;
-var triesLeft = 6;
-var unknownLetters;
-var underScores = [];
+var attempts = 6;
+var underScore;
 var playerGuesses = [];
-var changeUnderScores;
-var wrongLetter = [];
-var correctLetter = [];
-
+var correctLetters = [];
+var wrongletters = [];
 
 // MAIN
-// ==================================================================
+//=================================================================================================
 
-
-
-
- // GET the list of words from api
+// GET the list of words from api
   function getArrOfWords(){
    fetch('http://app.linkedin-reach.io/words')
   .then(res => (res.text())) // get the response back in text
   .then(data => words = data.split(/\r|\n/)) // turn the response into an array of words
-  .then(words => this.startGame())
-}
+  .then(words => this.startGame()) // call on this function to begin the game
+  }
 
-getArrOfWords();
+getArrOfWords() // call the function that GETs the list of words, turns the list into an array, starts the game
 
-  // generate a random word from the array of words
-  function startGame() {
-      underScores = []
-      randNum = Math.floor(Math.random() * words.length);
-      randWord = words[randNum];
-      // currentWord.push(randWord)
-      unknownLetters = Array.from(randWord);
-      console.log(unknownLetters)
-      for(var i = 0; i < unknownLetters.length; i++)
-      {
-        underScores.push('_')
-      }
-      document.getElementById('word-blanks').innerHTML = underScores.join(" ")
-      console.log(underScores);
-      // reset
-      wrongLetters = [];
-      triesLeft = 6;
+// pick a random word from array of words, create word blanks that equal the length of the word
 
-      //HTML
-      document.getElementById('guesses-left').innerHTML = triesLeft;
-
-   }
-   //
-   function trackWinsLosses()
+  function startGame()
+  {
+    var clear = document.getElementById("guesses");
+    clear.value = "";
+    correctLetters = [];
+    wrongletters = [];
+    attempts = 6;
+    underScore = [] //empty array to store underscores based on the length of the random word.
+    randNum  = [Math.floor(Math.random() * words.length)]; // nearest integer from a random number (0.0 -1 ) times the length of words array
+    randWord = words[randNum] // get a random word by using rand number as an index to retrieve a word at that location in array
+    console.log(randWord);
+    for( i = 0; i < randWord.length; i++ )
     {
-     if(triesLeft <= 0)
-      {
-       setTimeout(alert("Sorry, game over!"), 3000)
-       setTimeout(startGame(), 3000);
-      }
+       underScore[i] = "_";
+    }
+    document.getElementById('word-blanks').innerHTML = underScore.join(' ')
+    document.getElementById('rightGuess').innerHTML = correctLetters
+    document.getElementById('wrongGuess').innerHTML = wrongletters
+    //reset the values to their original values
+
+
+    document.getElementById('guesses-left').innerHTML = attempts
+  }
+
+  function winsAndLosses()
+
+   {
+     var correctWord = underScore.join('')
+     if (attempts < 1)
+     {
+       alert('Sorry, game over!')
+       startGame();
+     }
+     else if (randWord === correctWord )
+     {
+       // setTimeout(4000);
+       alert('You Won!');
+       startGame();
+
      }
 
-  // listen for keyup (letters that are pressed and released)
-  // decrease triesLeft counter if playerGuesses are wrong
-  // change underScores and reveal ocurrences of correct playerGuesses, if player guesses correctly
-   document.onkeyup = function(event){
+   }
+
+  function guessEntry(){
      playerGuesses = event.key;
      console.log(playerGuesses)
-
-     if(unknownLetters.indexOf(playerGuesses) > - 1) {
-     for(var i = 0; i < unknownLetters.length; i++)
-
+     if(randWord.indexOf(playerGuesses) > -1)
      {
-
-       if (unknownLetters[i] === playerGuesses)
-        {
-
-        underScores[i] = playerGuesses;
-        correctLetter.push(playerGuesses);
-        var changeUnderScores = document.getElementById("word-blanks");
-        changeUnderScores.innerHTML = underScores.join(' ');
-        document.getElementById("rightGuess").innerHTML = correctLetter.join(' ')
-   //     correct++;
-   //     trackWinsLosses();
-         }
-   //
-     }
-   //
-   }
-      else
+      for(i = 0; i < randWord.length; i++)
       {
-      wrongLetter.push(playerGuesses);
-      triesLeft--;
-      document.getElementById("wrongGuess").innerHTML = wrongLetter.join(' ')
-      document.getElementById('guesses-left').innerHTML = triesLeft;
-      alert("Wrong Guess, Try Again!")
-      trackWinsLosses();
-      }
+        if(randWord[i] === playerGuesses)
+        {
+          console.log(underScore[i] = playerGuesses);
+          var changeUnderScores = document.getElementById("word-blanks");
+          changeUnderScores.innerHTML = underScore.join('');
+          correctLetters.push(playerGuesses)
 
-   }
+          // document.getElementById('word-blanks').innerHTML = underScore.join('')
+          document.getElementById('rightGuess').innerHTML = correctLetters
+        }
+      }
+     }
+     else
+      {
+       wrongletters.push(playerGuesses);
+       attempts--;
+       console.log(wrongletters)
+       document.getElementById('wrongGuess').innerHTML = wrongletters
+       document.getElementById('guesses-left').innerHTML = attempts
+      }
+      winsAndLosses()
+  }
