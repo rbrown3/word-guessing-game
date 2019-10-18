@@ -62,19 +62,18 @@ var wrongletters = [];
 
    {
      var correctWord = underScore.join('')
-     setTimeout(4000)
-     if (attempts < 0)
-     {
-       swal('Sorry, game over!')
-       startGame();
+
+     if (attempts <= 0)
+
+      {
+        swal('Sorry, game over!')
+        setTimeout(function(){ startGame() }, 6000);
      }
      else if (randWord === correctWord )
      {
-       swal('You Won!');
        wins++;
-       console.log(wins)
-       startGame();
-
+       setTimeout(function(){ swal('You Won!') }, 1000);
+       setTimeout(function(){ startGame()}, 2000);
      }
 
    }
@@ -82,15 +81,17 @@ var wrongletters = [];
    var alreadyPressed = [];
 
   function guessEntry(){
-    if(event.keyCode >= 65 && event.keyCode <= 90) {
-          playerGuesses = event.key.toLowerCase();
-        }
-    if(randWord.indexOf(playerGuesses) > -1)
-     {
-    for(i = 0; i < randWord.length; i++)
+    if(event.keyCode >= 65 && event.keyCode <= 90)
       {
-    if(randWord[i] === playerGuesses)
-        {
+          playerGuesses = event.key.toLowerCase();
+      }
+
+        if(randWord.indexOf(playerGuesses) > -1)
+          {
+            for(i = 0; i < randWord.length; i++)
+              {
+                if(randWord[i] === playerGuesses)
+                 {
           underScore[i] = playerGuesses
           var wordBlanks = document.getElementById("word-blanks")
           wordBlanks.innerHTML = underScore.join(' ')
@@ -100,16 +101,18 @@ var wrongletters = [];
           var uniqueCorrectLetters = correctLetters.filter(noDuplicateValues);
           document.getElementById('rightGuess').innerHTML = uniqueCorrectLetters;
 
+                }
+            }
         }
-      }
-     }
+        
     else
       {
+       attempts--
        wrongletters.push(playerGuesses);
-       attempts--;
+       document.getElementById('guesses-left').innerHTML = attempts
        var uniqueWrongLetters = wrongletters.filter(noDuplicateValues);
        document.getElementById('wrongGuess').innerHTML = uniqueWrongLetters
-       document.getElementById('guesses-left').innerHTML = attempts
+
 
       }
       winsAndLosses()
