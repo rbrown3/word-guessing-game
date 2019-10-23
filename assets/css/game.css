@@ -1,0 +1,44 @@
+
+/* underscores */
+
+
+#word-blanks {
+   background-color: #fffff2;
+   font-size: 50px;
+   height: 150px;
+   margin: 18px auto;
+   text-align: center;
+   width: 80%;
+}
+
+
+/* input */
+
+#guesses {
+    border-radius: 15px;
+    background: #fdf6da;
+    font-family: 'Muli', sans-serif;
+    font-size: 18px;
+    padding: 10px;
+    width: 200px;
+    height: 10px;
+}
+
+
+/* alerts */
+
+.swal-button {
+    background-color: #ff7f4f;
+}
+
+.swal-button-confirm button:hover {
+    background-color: #ffcba4;
+}
+
+.swal-modal{
+   background-color: #fff9e3;
+}
+
+.swal-text{
+  font-size: 28px;
+}

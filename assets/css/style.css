@@ -29,7 +29,7 @@ header {
 
 h1 {
      text-align: center;
-     font-size: 48px;
+     font-size: 3rem;
 }
 
 
@@ -62,59 +62,32 @@ p{
   height: 50px;
 }
 
+/* BUTTONS */
 
-/* underscores */
+.btn {
 
-
-#word-blanks {
-   background-color: #fffff2;
-   font-size: 50px;
-   height: 150px;
-   margin: 18px auto;
-   text-align: center;
-   width: 80%;
+font-size: 1.8rem;
+padding: 1rem 1rem;
+width: 20rem;
+text-align: center;
+/* border: 0.1rem solid #de6262; */
+margin-bottom: 1rem;
+text-decoration:none;
+color: 	#000000;
+background:linear-gradient(to bottom right, #de6262,  #ffb88c);
 }
 
+.btn:hover{
+  cursor: pointer;
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(253,121,168, 0.8);
+  transform: translateY(-0.1rem);
+  transition: transform 150ms;
 
-/* input */
-
-#guesses {
-    border-radius: 15px;
-    background: #fdf6da;
-    font-family: 'Muli', sans-serif;
-    font-size: 18px;
-    padding: 10px;
-    width: 200px;
-    height: 10px;
 }
 
+.btn[disabled]:hover {
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
 
-/* alerts */
-
-.swal-button {
-    background-color: #ff7f4f;
 }
-
-.swal-button-confirm button:hover {
-    background-color: #ffcba4;
-}
-
-.swal-modal{
-   background-color: #fff9e3;
-}
-
-.swal-text{
-  font-size: 28px;
-}
-
-
-/* .flex-container {
-  background-color: #87ceeb;
-  display: flex;
-  margin: 10px;
-} */
-
-
-/* .flex-container p {
-  background-color: #ffffff;
-} */

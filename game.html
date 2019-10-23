@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Guess The Word- Start!</title>
+
+     <!-- styles  -->
+    <link rel="stylesheet" href="assets/css/style.css">
+      <link rel="stylesheet" href="assets/css/game.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+
+
+  </head>
+  <body>
+    <div class="container">
+           <header>
+
+             <h1>GUESS THE WORD</h1>
+             <p>Enter a letter to begin playing: <input type="text" id="guesses" onkeyup="guessEntry()"></p>
+          </header>
+
+          <h1 id="guesses-left"></h1>
+
+            <br>
+
+       <div  id="word-blanks"></div>
+
+             <br>
+
+             <br>
+
+            <div id="message">
+
+
+            </div>
+
+        </div>
+
+        <div class="container-box">
+            <div class="box a">
+              <h2>YES</h2>
+              <p id="rightGuess"></p>
+        </div>
+            <div class="box a">
+              <h2>NO</h2>
+              <p id="wrongGuess"></p>
+            </div>
+
+        </div>
+
+
+
+
+
+
+  </body>
+
+
+    <script src="assets/js/wordguess.js">
+
+    </script>
+
+     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+</html>

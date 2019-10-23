@@ -1,6 +1,6 @@
 //  Global Variables
 // ===============================================================================================
-var words;
+var words = ['music', 'dance', 'art', 'science', 'reading', 'math'];
 var randNum;
 var randWord;
 var wordBlanks;
@@ -16,15 +16,15 @@ var wrongletters = [];
 //=================================================================================================
 
 // GET the list of words from api
-  function getArrOfWords(){
-   fetch('http://app.linkedin-reach.io/words')
-  .then(res => (res.text())) // get the response back in text
-  .then(data => words = data.split(/\r|\n/)) // turn the response into an array of words
-  .then(words => this.startGame()) // call on this function to begin the game
-  }
-
-  getArrOfWords() // call the function that GETs the list of words, turns the list into an array, starts the game
-
+//   function getArrOfWords(){
+//    fetch('http://app.linkedin-reach.io/words')
+//   .then(res => (res.text())) // get the response back in text
+//   .then(data => words = data.split(/\r|\n/)) // turn the response into an array of words
+//   .then(words => this.startGame()) // call on this function to begin the game
+//   }
+//
+//   getArrOfWords() // call the function that GETs the list of words, turns the list into an array, starts the game
+//
   function noDuplicateValues(value, index, self) {
     return self.indexOf(value) === index;
 }
@@ -57,6 +57,8 @@ var wrongletters = [];
 
     document.getElementById('guesses-left').innerHTML = attempts
   }
+
+  startGame();
 
   function winsAndLosses()
 
@@ -104,7 +106,7 @@ var wrongletters = [];
                 }
             }
         }
-        
+
     else
       {
        attempts--
